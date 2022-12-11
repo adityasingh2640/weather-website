@@ -9,6 +9,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Unable to find location', undefined)
         } else {
+            console.log('Forecast!!');
             let celciusTemp = (5/9) * (body.currently.temperature - 32);
             callback(undefined, body.daily.data[0].summary + ' It is currently ' + Math.round(celciusTemp) + ' C degress out. There is a ' + body.currently.precipProbability + '% chance of rain.')
         }
